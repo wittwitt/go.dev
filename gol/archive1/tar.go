@@ -19,7 +19,7 @@ import (
 const tarModTime = "2023-04-01 07:04:05" // UTC time
 
 // Dir2tar tar dir to tar file
-func dir2tar(ctx context.Context, srcDir string, tarPath string, isCompress bool) (err error) {
+func Dir2tar(ctx context.Context, srcDir string, tarPath string, isCompress bool) (err error) {
 
 	// 注意：
 	// tar会打包文件的时间戳、所有者、反问权限等信息造成tar md5不同
@@ -119,7 +119,7 @@ func dir2tar(ctx context.Context, srcDir string, tarPath string, isCompress bool
 	return nil
 }
 
-func dir2tar2(ctx context.Context, srcDir string, tarPath string, is2k bool) (err error) {
+func Dir2tar2(ctx context.Context, srcDir string, tarPath string, is2k bool) (err error) {
 
 	defer func() {
 		if rev := recover(); rev != nil {
