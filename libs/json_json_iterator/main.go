@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"gol/demo/json_json_iterator/json"
+	"github.com/wittwitt/go.dev/libs/json_json_iterator/json"
 )
 
 func main() {
