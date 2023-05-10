@@ -2,6 +2,7 @@ package fs1
 
 import (
 	"crypto/rand"
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -49,4 +50,18 @@ func Test_tmp(t *testing.T) {
 	_, err = k2f.Write(data)
 	require.NoError(t, err)
 	k2f.Close()
+}
+
+func Test_stat(t *testing.T) {
+	dir, err := os.MkdirTemp(os.TempDir(), "go.dev.*")
+	require.NoError(t, err)
+
+	statInfo, err := os.Stat(dir)
+	require.NoError(t, err)
+
+	t.Log(statInfo.IsDir())
+
+	_, err = os.Stat(filepath.Join("some"))
+	require.Equal(t, true, errors.Is(err, os.ErrNotExist))
+
 }

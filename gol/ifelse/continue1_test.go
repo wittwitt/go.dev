@@ -59,19 +59,17 @@ func fn_TestFor2(i int) int {
 }
 
 func TestTcontinue(t *testing.T) {
-
 	for i := 0; i < 10; i++ {
-
 		k := i + 1
-
 		switch k {
 		case 1:
 			fmt.Println("k", 1)
 		case 2:
+			fmt.Println("k", 2)
 			continue
 		default:
 		}
-		fmt.Println("===", i)
+		fmt.Println("===", i, k)
 	}
 
 }
