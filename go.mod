@@ -9,6 +9,8 @@ require (
 	github.com/filecoin-project/go-bitfield v0.2.4
 	github.com/getlantern/systray v1.2.2
 	github.com/gin-gonic/gin v1.9.0
+	github.com/go-sql-driver/mysql v1.7.1
+	github.com/golang/protobuf v1.5.0
 	github.com/google/uuid v1.3.0
 	github.com/json-iterator/go v1.1.12
 	github.com/prestonTao/upnp v0.0.0-20220429011949-f141651daac6
@@ -22,6 +24,8 @@ require (
 	go.etcd.io/bbolt v1.3.7
 	go.opencensus.io v0.24.0
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2
+	google.golang.org/grpc v1.33.2
+	google.golang.org/protobuf v1.28.1
 )
 
 require (
@@ -90,7 +94,7 @@ require (
 	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
-	google.golang.org/protobuf v1.28.1 // indirect
+	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
