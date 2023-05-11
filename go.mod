@@ -23,6 +23,7 @@ require (
 	github.com/urfave/cli/v2 v2.25.3
 	go.etcd.io/bbolt v1.3.7
 	go.opencensus.io v0.24.0
+	golang.org/x/sys v0.5.0
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2
 	google.golang.org/grpc v1.33.2
 	google.golang.org/protobuf v1.28.1
@@ -92,7 +93,6 @@ require (
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
 	golang.org/x/crypto v0.5.0 // indirect
 	golang.org/x/net v0.7.0 // indirect
-	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
