@@ -12,6 +12,7 @@ require (
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/golang/protobuf v1.5.0
 	github.com/google/uuid v1.3.0
+	github.com/hannahhoward/go-pubsub v1.0.0
 	github.com/json-iterator/go v1.1.12
 	github.com/prestonTao/upnp v0.0.0-20220429011949-f141651daac6
 	github.com/rakyll/statik v0.1.7
