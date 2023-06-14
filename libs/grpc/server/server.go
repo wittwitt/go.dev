@@ -8,7 +8,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	pb "gol/snippets/grpc/helloworld"
+	pb "github.com/wittwitt/go.dev/libs/grpc/helloworld"
 )
 
 const (
@@ -21,9 +21,9 @@ type server struct {
 }
 
 // SayHello implements helloworld.GreeterServer
-func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
+func (s *server) SayHello(ctx context.Context, in *pb.HelloReq) (*pb.HelloRes, error) {
 	log.Printf("Received: %v", in.GetName())
-	return &pb.HelloReply{Message: "Hello " + in.GetName()}, nil
+	return &pb.HelloRes{Message: "Hello " + in.GetName()}, nil
 }
 
 func main() {

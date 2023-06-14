@@ -8,7 +8,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	pb "gol/snippets/grpc/helloworld"
+	pb "github.com/wittwitt/go.dev/libs/grpc/helloworld"
 )
 
 const (
@@ -32,7 +32,7 @@ func main() {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: name})
+	r, err := c.SayHello(ctx, &pb.HelloReq{Name: name})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}

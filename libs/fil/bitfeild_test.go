@@ -8,7 +8,8 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_bitfeild(t *testing.T) {
+func 
+filepath.Test_bitfeild(t *testing.T) {
 
 	c := bitfield.New()
 	c.Set(33)

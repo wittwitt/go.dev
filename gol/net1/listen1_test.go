@@ -1,6 +1,7 @@
 package net1
 
 import (
+	"github.com/stretchr/testify/require"
 	"net"
 	"testing"
 )
@@ -59,4 +60,18 @@ func TestNet1_external_lan_ip(t *testing.T) {
 	defer conn.Close()
 	localAddr := conn.LocalAddr().(*net.TCPAddr)
 	t.Log(localAddr.IP.String())
+}
+
+func Test_hostport(t *testing.T) {
+	{
+		_, _, err := net.SplitHostPort("127.0.0.1")
+		require.Error(t, err)
+	}
+
+	{
+		host, port, err := net.SplitHostPort("127.0.0.1:0")
+		require.NoError(t, err)
+		require.Equal(t, "127.0.0.1", host)
+		require.Equal(t, "0", port)
+	}
 }
