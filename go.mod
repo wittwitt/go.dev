@@ -10,8 +10,8 @@ require (
 	github.com/getlantern/systray v1.2.2
 	github.com/gin-gonic/gin v1.9.0
 	github.com/go-sql-driver/mysql v1.7.1
-	github.com/golang/protobuf v1.5.0
 	github.com/google/uuid v1.3.0
+	github.com/google/wire v0.5.0
 	github.com/hannahhoward/go-pubsub v1.0.0
 	github.com/json-iterator/go v1.1.12
 	github.com/prestonTao/upnp v0.0.0-20220429011949-f141651daac6
@@ -55,6 +55,7 @@ require (
 	github.com/goccy/go-json v0.10.0 // indirect
 	github.com/golang/geo v0.0.0-20210211234256-740aa86cb551 // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
+	github.com/golang/protobuf v1.5.0 // indirect
 	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
 	github.com/google/btree v1.0.0 // indirect
 	github.com/google/go-cmp v0.5.5 // indirect
