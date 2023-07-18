@@ -24,6 +24,7 @@ require (
 	github.com/urfave/cli/v2 v2.25.3
 	go.etcd.io/bbolt v1.3.7
 	go.opencensus.io v0.24.0
+	go.uber.org/zap v1.24.0
 	golang.org/x/sys v0.5.0
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2
 	google.golang.org/grpc v1.33.2
@@ -92,6 +93,8 @@ require (
 	github.com/ugorji/go/codec v1.2.9 // indirect
 	github.com/whyrusleeping/cbor-gen v0.0.0-20200414195334-429a0b5e922e // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
+	go.uber.org/atomic v1.7.0 // indirect
+	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
 	golang.org/x/crypto v0.5.0 // indirect
 	golang.org/x/net v0.7.0 // indirect

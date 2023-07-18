@@ -33,6 +33,11 @@ func Test_t2(t *testing.T) {
 	require.Equal(t, filepath.Base("/abc/asd"), "asd")
 	require.Equal(t, filepath.Base("/abc/asd.exe"), "asd.exe")
 	require.Equal(t, filepath.Base("/abc/asd.exe.abc"), "asd.exe.abc")
+
+	require.Equal(t, filepath.Ext("/abc/asd"), "")
+	require.Equal(t, filepath.Ext("/abc/asd.exe"), ".exe")
+	require.Equal(t, filepath.Ext("/abc/asd.exe.abc"), ".abc")
+	require.Equal(t, filepath.Ext("/abc/asd.exe.abc.tar.gz"), ".gz")
 }
 
 func Test_tmp(t *testing.T) {

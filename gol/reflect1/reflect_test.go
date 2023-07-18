@@ -1,4 +1,4 @@
-package struct1
+package reflect1
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ func (p *A) Some() {
 
 }
 
-func Test_t2(t *testing.T) {
+func Test_t3332(t *testing.T) {
 	a := A{name: "aa"}
 	a2 := &A{name: "a2a2"}
 

@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_t2(t *testing.T) {
+func Test_t12(t *testing.T) {
 	str := "str1"
 	require.Equal(t, "string", anyFn(str).Name())
 	require.Equal(t, "string", interfaceFn(str).Name())

@@ -4,25 +4,46 @@ import (
 	"fmt"
 
 	"github.com/syndtr/goleveldb/leveldb"
+	"github.com/syndtr/goleveldb/leveldb/util"
 )
 
 func main() {
 	var err error
 
-	db, err := leveldb.OpenFile("a.db", nil)
+	db, err := leveldb.OpenFile("test.db", nil)
 	defer db.Close()
 
 	fmt.Println(err)
 
-	data, err := db.Get([]byte("key"), nil)
-	if err != nil {
+	db.Put([]byte("foo-ab"), []byte("abc"), nil)
+	db.Put([]byte("fooab"), []byte("ddd"), nil)
 
+	{
+		data, err := db.Get([]byte("key"), nil)
+		if err != nil {
+
+		}
+		fmt.Println(data)
+
+		err = db.Put([]byte("key"), []byte("123"), nil)
 	}
 
-	fmt.Println(data)
+	{
+		iter := db.NewIterator(util.BytesPrefix([]byte("foo-")), nil)
+		for iter.Next() {
+			fmt.Println("value:", string(iter.Value()))
+		}
+		iter.Release()
+		err = iter.Error()
+	}
 
-	err = db.Put([]byte("key"), []byte("123"), nil)
+	{
+		iter := db.NewIterator(&util.Range{Start: []byte("foo"), Limit: []byte("xoo")}, nil)
+		for iter.Next() {
 
-	//	err = db.Delete([]byte("key"), nil)
+		}
+		iter.Release()
+		err = iter.Error()
+	}
 
 }
