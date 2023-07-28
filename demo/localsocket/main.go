@@ -1,11 +1,13 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"net"
 	"os"
 	"os/signal"
 	"path/filepath"
+	"strings"
 	"syscall"
 )
 
@@ -83,9 +85,9 @@ func main() {
 	fmt.Println("Stopping daemon")
 }
 
-func f(){
+func f() {
 
-// Connect to the daemon
+	// Connect to the daemon
 	conn, err := net.Dial("unix", "/path/to/unix/socket")
 	if err != nil {
 		fmt.Println("Failed to connect to the daemon:", err)
@@ -123,33 +125,29 @@ func f(){
 	}
 }
 
+func HanMsg() {
 
-func HanMsg(){
-	
 }
 
 type Msger interface {
 	MID() string
-	MType() string	
+	MType() string
 }
 
-type Request struct{
-		
+type Request struct {
 }
 
-type Reseonse struct{
-	
+type Reseonse struct {
 }
 
-
-func dispatch(msg Msger){
-	switch msg.MType(){
+func dispatch(msg Msger) {
+	switch msg.MType() {
 	case "":
 	default:
-		
+
 	}
 }
 
-func action(req Request) (res Reseonse){
-	
+func action(req Request) (res Reseonse) {
+	return
 }

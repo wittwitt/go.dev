@@ -1,4 +1,4 @@
-package type1
+package ifelse
 
 import (
 	"fmt"

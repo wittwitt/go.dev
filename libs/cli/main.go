@@ -78,3 +78,7 @@ func main2() {
 	}
 	app.Run(os.Args)
 }
+
+func main3() {
+
+}

@@ -3,7 +3,16 @@ package slice1
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
+
+func Test_pos(t *testing.T) {
+	s := []int{11, 22, 33, 44, 55, 66, 77, 88, 99}
+	require.Equal(t, 11, s[0])
+	require.Equal(t, []int{}, s[:0])
+	// require.Equal(t, []int{}, s[:-1]) // not support
+}
 
 func TestSlice1F1(t *testing.T) {
 
