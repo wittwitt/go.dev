@@ -2,8 +2,43 @@ package ifelse
 
 import (
 	"fmt"
+	"sync"
 	"testing"
+	"time"
 )
+
+type range1S1 struct {
+	name string
+}
+
+func Test_range(t *testing.T) {
+
+	list := []range1S1{
+		{"z1"},
+		{"z2"},
+		{"z3"},
+	}
+
+	var lock sync.Mutex
+
+	lock.Lock()
+
+	go func() {
+		for _, item := range list {
+			fmt.Println(item.name)
+			fmt.Println("ok")
+			lock.Unlock()
+			lock.Lock()
+		}
+	}()
+
+	lock.Lock()
+	list[1].name = "haha"
+	lock.Unlock()
+
+	time.Sleep(10 * time.Second)
+
+}
 
 func TestRange1_range_slice(t *testing.T) {
 	m := make([]int, 7)
