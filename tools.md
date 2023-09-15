@@ -43,3 +43,10 @@ cd /path/to/wire_provieder.go
 wire
 
 ```
+
+
+### check
+
+
+1. shadow check
+go vet -vettool=$(which shadow)
