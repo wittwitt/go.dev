@@ -21,3 +21,8 @@ func TestT1(t *testing.T) {
 	require.Equal(t, 0, 100%100)
 	require.Equal(t, 1, 101%100)
 }
+
+func Test_yi(t *testing.T) {
+
+	t.Log(uint64(512 << 10))
+}

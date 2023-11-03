@@ -6,6 +6,11 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func Test_s1(t *testing.T) {
+	var s [4]int
+	t.Log(len(s))
+}
+
 // 数组也是值传递 ,copy一分，，数组整个copy，不是仅仅拷贝元素地址
 func TestT1(t *testing.T) {
 	x := [3]int{1, 2, 3}
