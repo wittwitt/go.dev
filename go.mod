@@ -12,9 +12,8 @@ require (
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/google/uuid v1.3.0
 	github.com/google/wire v0.5.0
-	github.com/hannahhoward/go-pubsub v1.0.0
+	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/json-iterator/go v1.1.12
-	github.com/multiformats/go-multiaddr v0.11.0
 	github.com/prestonTao/upnp v0.0.0-20220429011949-f141651daac6
 	github.com/rakyll/statik v0.1.7
 	github.com/robfig/cron/v3 v3.0.1
@@ -98,7 +97,6 @@ require (
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
 	golang.org/x/crypto v0.5.0 // indirect
-	golang.org/x/exp v0.0.0-20230725012225-302865e7556b // indirect
 	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect

@@ -25,4 +25,15 @@ func TestT1(t *testing.T) {
 func Test_yi(t *testing.T) {
 
 	t.Log(uint64(512 << 10))
+
+	t.Log(4 << 20)
+}
+
+func Test_mod(t *testing.T) {
+
+	i := 0x12
+	j := 0x12
+
+	t.Log(i ^ j)
+
 }

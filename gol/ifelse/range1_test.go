@@ -11,6 +11,45 @@ type range1S1 struct {
 	name string
 }
 
+func Test_range2(t *testing.T) {
+
+	list := []range1S1{
+		{"z1"},
+		{"z2"},
+		{"z3"},
+	}
+
+	wg := sync.WaitGroup{}
+	wg.Add(len(list))
+
+	// sayFn := func(a *range1S1) {
+
+	// 	time.Sleep(5 * time.Second)
+	// 	fmt.Println(a.name)
+
+	// 	wg.Done()
+	// }
+
+	for _, item := range list {
+		// go sayFn(item)
+
+		//
+		go func() {
+			time.Sleep(5 * time.Second)
+			fmt.Println(item.name)
+			wg.Done()
+		}()
+
+		// go func(item *range1S1) {
+		// 	time.Sleep(5 * time.Second)
+		// 	fmt.Printf("%p, %s, \n", item, item.name)
+		// 	wg.Done()
+		// }(item)
+	}
+
+	wg.Wait()
+}
+
 func Test_range(t *testing.T) {
 
 	list := []range1S1{
