@@ -3,6 +3,8 @@ package err1
 import (
 	"errors"
 	"fmt"
+	"runtime"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -108,4 +110,55 @@ func Test_as(t *testing.T) {
 	} else {
 		t.Log(1)
 	}
+}
+
+func ErrorX(err error) error {
+	pc, _, _, _ := runtime.Caller(1)
+	fn := runtime.FuncForPC(pc)
+	_, lastFuncName := extractLastPackageName(fn.Name())
+
+	return fmt.Errorf("%s: %w", lastFuncName, err)
+}
+
+func extractLastPackageName(fullName string) (string, string) {
+	// Split the fully-qualified name by "/"
+	parts := strings.Split(fullName, "/")
+
+	// Take the last part as the function name
+	lastPart := parts[len(parts)-1]
+
+	// Split the last part by "."
+	lastPartParts := strings.Split(lastPart, ".")
+
+	// The last part is the function name
+	lastFuncName := lastPartParts[len(lastPartParts)-1]
+
+	// The package name is everything before the last part
+	lastPackageName := strings.Join(parts[:len(parts)-1], "/")
+
+	return lastPackageName, lastFuncName
+}
+
+func FnErr1() error {
+	return fmt.Errorf("error fn 1")
+}
+
+func FnErrLevel21() error {
+	return ErrorX(FnErr1())
+}
+
+func FnErrLevel22() error {
+	return ErrorX(FnErr1())
+}
+
+func FnErrLevel31() error {
+	return ErrorX(FnErrLevel21())
+}
+
+func TestG(t *testing.T) {
+	t.Log(FnErrLevel21())
+	t.Log(FnErrLevel22())
+
+	t.Log(FnErrLevel31())
+
 }

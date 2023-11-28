@@ -6,6 +6,41 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func Test_var(t *testing.T) {
+
+	// :=
+	// 相当于
+	// var x type
+	// x=some
+
+	a := 100
+	b := 200
+	a, b, c, d := f1() // := , 最少有一个未声明，
+	require.Equal(t, a, 11)
+	require.Equal(t, b, 12)
+	require.Equal(t, c, 13)
+	require.Equal(t, d, true)
+
+	{
+		require.Equal(t, a, 11)
+
+		a, x, _, _ := f2() //  :=范围限定在{}内， a就是新变量了，不会覆盖原有变量
+		require.Equal(t, a, 1)
+		require.Equal(t, x, 2)
+		a = 123
+	}
+
+	require.Equal(t, a, 11)
+
+}
+
+func f1() (int, int, int, bool) {
+	return 11, 12, 13, true
+}
+func f2() (int, int, int, bool) {
+	return 1, 2, 3, true
+}
+
 func TestT1(t *testing.T) {
 	require.Equal(t, 0, 1/5)
 	require.Equal(t, 0, 3/5)
