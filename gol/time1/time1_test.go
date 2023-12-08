@@ -1,6 +1,8 @@
 package time1
 
 import (
+	"encoding/binary"
+	"encoding/hex"
 	"testing"
 	"time"
 
@@ -18,6 +20,11 @@ import (
 func Test_default(t *testing.T) {
 
 	now := time.Now()
+
+	bytesBuffer := make([]byte, 8) // Assuming a 32-bit integer
+	binary.BigEndian.PutUint64(bytesBuffer, uint64(now.UnixNano()))
+	t.Log(hex.EncodeToString(bytesBuffer))
+
 	t.Log("now unix", now.Unix(), now.UnixNano()) // from 1970-01-01 00:00:00 开始的second, 可以为负数
 
 	time1, _ := time.Parse("20060102150405", "19700101000000")                       // str 为UTC, loc指向UTC
