@@ -4,6 +4,7 @@ import (
 	"crypto/rand"
 	"errors"
 	"fmt"
+	"io/fs"
 	"os"
 	"path/filepath"
 	"syscall"
@@ -11,6 +12,20 @@ import (
 
 	"github.com/stretchr/testify/require"
 )
+
+func Test_remove_not_exist_file(t *testing.T) {
+
+	err := os.Remove("/path/to/Test_remove_not_exist_file")
+
+	t.Logf("%#v", err)
+
+	// correct
+	// &fs.PathError{Op:"remove", Path:"/path/to/nofile/ccccc", Err:0x2}
+	require.Equal(t, true, os.IsNotExist(err))
+
+	require.False(t, errors.Is(fs.ErrNotExist, err))
+	require.False(t, errors.Is(os.ErrNotExist, err))
+}
 
 func Test_t1(t *testing.T) {
 	Statfs("/home/abc/asd")

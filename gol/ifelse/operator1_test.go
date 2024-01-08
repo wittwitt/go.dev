@@ -72,3 +72,10 @@ func Test_mod(t *testing.T) {
 	t.Log(i ^ j)
 
 }
+
+func Test_you(t *testing.T) {
+	var x int64 = 5
+	var y int64 = 3
+
+	t.Log(-x - y)
+}
