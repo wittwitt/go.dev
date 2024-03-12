@@ -10,7 +10,8 @@ import (
 )
 
 func main() {
-	main2()
+	main1()
+	// main2()
 }
 
 func main1() {
@@ -46,7 +47,21 @@ func main1() {
 func subCmd() *cli.Command {
 	return &cli.Command{
 		Name: "sub",
+		Flags: []cli.Flag{
+			&cli.StringFlag{
+				Name:    "evar",
+				Aliases: []string{"c"},
+				EnvVars: []string{"GODEV_TEST_EVAR"},
+				Value:   "",
+			},
+		},
 		Action: func(cctx *cli.Context) error {
+
+			// env make flag and env ok
+			// flag only make flag value
+
+			fmt.Println("flag", cctx.String("evar"))
+			fmt.Println("env", os.Getenv("GODEV_TEST_EVAR"))
 
 			go func() {
 				for {
